@@ -1,0 +1,65 @@
+{
+    "configurations": [
+        {
+            "name": "ArcadeRacerEditor Editor Mac Development (ArcadeRacer)",
+            "compilerPath": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+            "compilerArgs": [
+                "-isysroot",
+                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk"
+            ],
+            "macFrameworkPath": [
+                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks"
+            ],
+            "cStandard": "c17",
+            "cppStandard": "c++20",
+            "intelliSenseMode": "clang-x64",
+            "compileCommands": "/Users/ratkek/Documents/GitHub/this_side_down_2/ArcadeRacer/.vscode/compileCommands_ArcadeRacer.json",
+			"includePath": [ 
+				"${workspaceFolder}\\Intermediate\\**", 
+				"${workspaceFolder}\\Plugins\\**", 
+				"${workspaceFolder}\\Source\\**" 
+			],
+            "defines": [ 
+				"UNICODE", 
+				"_UNICODE", 
+				"__UNREAL__", 
+				"UBT_COMPILED_PLATFORM=Windows", 
+				"WITH_ENGINE=1", 
+				"WITH_UNREAL_DEVELOPER_TOOLS=1", 
+				"WITH_APPLICATION_CORE=1", 
+				"WITH_COREUOBJECT=1" 
+			]
+        },
+        {
+            "name": "Mac",
+            "compilerPath": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+            "compilerArgs": [
+                "-isysroot",
+                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk"
+            ],
+            "macFrameworkPath": [
+                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks"
+            ],
+            "cStandard": "c17",
+            "cppStandard": "c++20",
+            "intelliSenseMode": "clang-x64",
+            "compileCommands": "/Users/ratkek/Documents/GitHub/this_side_down_2/ArcadeRacer/.vscode/compileCommands_Default.json",
+			"includePath": [ 
+				"${workspaceFolder}\\Intermediate\\**", 
+				"${workspaceFolder}\\Plugins\\**", 
+				"${workspaceFolder}\\Source\\**" 
+			],
+            "defines": [ 
+				"UNICODE", 
+				"_UNICODE", 
+				"__UNREAL__", 
+				"UBT_COMPILED_PLATFORM=Windows", 
+				"WITH_ENGINE=1", 
+				"WITH_UNREAL_DEVELOPER_TOOLS=1", 
+				"WITH_APPLICATION_CORE=1", 
+				"WITH_COREUOBJECT=1" 
+			] 
+        }
+    ],
+    "version": 4
+}
