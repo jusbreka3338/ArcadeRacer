@@ -1,0 +1,106 @@
+[
+	{
+		"file": "/Users/ratkek/Documents/GitHub/this_side_down_2/ArcadeRacer/Source/ArcadeRacer/ArcadeRacer.Build.cs",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/ratkek/Documents/GitHub/this_side_down_2/ArcadeRacer/.vscode/compileCommands_ArcadeRacer/ArcadeRacer.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/ratkek/Documents/GitHub/this_side_down_2/ArcadeRacer/Source/ArcadeRacer/ArcadeRacer.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/ratkek/Documents/GitHub/this_side_down_2/ArcadeRacer/.vscode/compileCommands_ArcadeRacer/ArcadeRacer.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/ratkek/Documents/GitHub/this_side_down_2/ArcadeRacer/Source/ArcadeRacer/ArcadeRacer.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/ratkek/Documents/GitHub/this_side_down_2/ArcadeRacer/.vscode/compileCommands_ArcadeRacer/ArcadeRacer.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/ratkek/Documents/GitHub/this_side_down_2/ArcadeRacer/Source/ArcadeRacer/GreasySmeagol.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/ratkek/Documents/GitHub/this_side_down_2/ArcadeRacer/.vscode/compileCommands_ArcadeRacer/ArcadeRacer.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/ratkek/Documents/GitHub/this_side_down_2/ArcadeRacer/Source/ArcadeRacer/GreasySmeagol.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/ratkek/Documents/GitHub/this_side_down_2/ArcadeRacer/.vscode/compileCommands_ArcadeRacer/ArcadeRacer.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/ratkek/Documents/GitHub/this_side_down_2/ArcadeRacer/Source/ArcadeRacer/RaceTracker.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/ratkek/Documents/GitHub/this_side_down_2/ArcadeRacer/.vscode/compileCommands_ArcadeRacer/ArcadeRacer.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/ratkek/Documents/GitHub/this_side_down_2/ArcadeRacer/Source/ArcadeRacer/RaceTracker.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/ratkek/Documents/GitHub/this_side_down_2/ArcadeRacer/.vscode/compileCommands_ArcadeRacer/ArcadeRacer.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/ratkek/Documents/GitHub/this_side_down_2/ArcadeRacer/Source/ArcadeRacer/StringHelper.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/ratkek/Documents/GitHub/this_side_down_2/ArcadeRacer/.vscode/compileCommands_ArcadeRacer/ArcadeRacer.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/ratkek/Documents/GitHub/this_side_down_2/ArcadeRacer/Source/ArcadeRacer/StringHelper.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/ratkek/Documents/GitHub/this_side_down_2/ArcadeRacer/.vscode/compileCommands_ArcadeRacer/ArcadeRacer.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/ratkek/Documents/GitHub/this_side_down_2/ArcadeRacer/Source/ArcadeRacer/TestActor.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/ratkek/Documents/GitHub/this_side_down_2/ArcadeRacer/.vscode/compileCommands_ArcadeRacer/ArcadeRacer.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/ratkek/Documents/GitHub/this_side_down_2/ArcadeRacer/Source/ArcadeRacer/TestActor.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/ratkek/Documents/GitHub/this_side_down_2/ArcadeRacer/.vscode/compileCommands_ArcadeRacer/ArcadeRacer.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/ratkek/Documents/GitHub/this_side_down_2/ArcadeRacer/Source/ArcadeRacer/TrackerTrigger.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/ratkek/Documents/GitHub/this_side_down_2/ArcadeRacer/.vscode/compileCommands_ArcadeRacer/ArcadeRacer.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/ratkek/Documents/GitHub/this_side_down_2/ArcadeRacer/Source/ArcadeRacer/TrackerTrigger.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/ratkek/Documents/GitHub/this_side_down_2/ArcadeRacer/.vscode/compileCommands_ArcadeRacer/ArcadeRacer.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	}
+]
