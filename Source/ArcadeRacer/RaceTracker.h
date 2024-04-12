@@ -40,6 +40,7 @@ protected:
 	TArray<AActor*> triggers;
 
 	void HandleTracking();
+	UPROPERTY()
 	TArray<AActor*> sortedPlayers;
 
 public:	
@@ -56,4 +57,6 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	int RequestPosition(AActor* player);
+	UFUNCTION(BlueprintCallable)
+	AActor* RequestLastTrigger(AActor* player);
 };

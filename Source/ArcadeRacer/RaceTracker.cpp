@@ -82,11 +82,11 @@ void ARaceTracker::HandleTracking()
 				continue;
 			}
 
-			const float dist = player->GetDistanceTo(triggers[i]);
+			float dist = player->GetDistanceTo(triggers[i]);
 			bool playerPlaced = false;
 			for (int j = 0; j < localSortedPlayers.Num(); j += 1)
 			{
-				const float compareDist = localSortedPlayers[j]->GetDistanceTo(triggers[i]);
+				float compareDist = localSortedPlayers[j]->GetDistanceTo(triggers[i]);
 				if (dist < compareDist)
 				{
 					localSortedPlayers.Insert(player, j);
@@ -128,4 +128,14 @@ int ARaceTracker::RequestPosition(AActor* player)
 	if (!sortedPlayers.Contains(player)) return -1;
 
 	return sortedPlayers.Find(player);
+}
+
+AActor* ARaceTracker::RequestLastTrigger(AActor* player)
+{
+	for (int i = 0; i < players.Num(); i += 1)
+	{
+		if (players[i].list.Contains(player)) return triggers[i];
+	}
+
+	return nullptr;
 }
