@@ -17,9 +17,6 @@ void AGreasySmeagol::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	StringHelper::Print("O!");
-	 public var boi = "Little lungs";
-	StringHelper::Print(boi);
 }
 
 // Called every frame
