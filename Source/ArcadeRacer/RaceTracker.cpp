@@ -18,6 +18,8 @@ ARaceTracker::ARaceTracker()
 void ARaceTracker::BeginPlay()
 {
 	Super::BeginPlay();
+
+	SpawnTriggers();
 }
 
 // Called every frame
@@ -28,16 +30,19 @@ void ARaceTracker::Tick(float DeltaTime)
 	HandleTracking();
 }
 
-void ARaceTracker::SpawnTriggers(USplineComponent* inSpline)
+void ARaceTracker::SpawnTriggers()
 {
+	if (trackSplineHandler == nullptr) return;
+	USplineComponent* spline = trackSplineHandler->GetComponentByClass<USplineComponent>();
+	
 	StringHelper::Print("Triggers Spawned");
 	if (triggerBlueprint == nullptr) return;
 	
-	for (int i = 0; i < inSpline->GetNumberOfSplinePoints(); i += 1)
+	for (int i = 0; i < spline->GetNumberOfSplinePoints(); i += 1)
 	{
 		ATrackerTrigger* newTrigger = static_cast<ATrackerTrigger*>(GetWorld()->SpawnActor(triggerBlueprint->GeneratedClass));
-		newTrigger->SetActorLocation(inSpline->GetLocationAtSplinePoint(i, ESplineCoordinateSpace::World));
-		newTrigger->SetActorRotation(inSpline->GetRotationAtSplinePoint(i, ESplineCoordinateSpace::World));
+		newTrigger->SetActorLocation(spline->GetLocationAtSplinePoint(i, ESplineCoordinateSpace::World));
+		newTrigger->SetActorRotation(spline->GetRotationAtSplinePoint(i, ESplineCoordinateSpace::World));
 
 		newTrigger->SetRaceTracker(this);
 		newTrigger->SetTriggerIndex(i);
@@ -49,12 +54,16 @@ void ARaceTracker::SpawnTriggers(USplineComponent* inSpline)
 
 void ARaceTracker::PlayerEnterTrigger(AActor* inPlayer, int triggerIndex)
 {
+	bool justAddedPlayer = false;
 	if (!playerActors.Contains(inPlayer))
 	{
 		playerActors.Add(inPlayer);
 		playerLaps.Add(0);
+
+		justAddedPlayer = true;
 	}
-	
+
+	int oldPlayerPos = triggers.Find(RequestLastTrigger(inPlayer));
 	if (players[triggerIndex].list.Contains(inPlayer)) return;
 	for (int i = 0; i < players.Num(); i += 1)
 	{
@@ -64,7 +73,10 @@ void ARaceTracker::PlayerEnterTrigger(AActor* inPlayer, int triggerIndex)
 
 	if (triggerIndex == 0)
 	{
-		playerLaps[playerActors.Find(inPlayer)] += 1;
+		int playerIndex = playerActors.Find(inPlayer);
+		if (justAddedPlayer || oldPlayerPos > 2)
+			playerLaps[playerIndex] += 1; // Lap player
+		if (playerLaps[playerIndex] > lapRequirement) finishedPlayers.Add(inPlayer); // Player finish
 	}
 }
 
@@ -82,11 +94,11 @@ void ARaceTracker::HandleTracking()
 				continue;
 			}
 
-			const float dist = player->GetDistanceTo(triggers[i]);
+			float dist = player->GetDistanceTo(triggers[i]);
 			bool playerPlaced = false;
 			for (int j = 0; j < localSortedPlayers.Num(); j += 1)
 			{
-				const float compareDist = localSortedPlayers[j]->GetDistanceTo(triggers[i]);
+				float compareDist = localSortedPlayers[j]->GetDistanceTo(triggers[i]);
 				if (dist < compareDist)
 				{
 					localSortedPlayers.Insert(player, j);
@@ -128,4 +140,22 @@ int ARaceTracker::RequestPosition(AActor* player)
 	if (!sortedPlayers.Contains(player)) return -1;
 
 	return sortedPlayers.Find(player);
+}
+
+int ARaceTracker::RequestLap(AActor* player)
+{
+	if (!playerActors.Contains(player)) return 0;
+
+	return playerLaps[playerActors.Find(player)];
+}
+
+
+AActor* ARaceTracker::RequestLastTrigger(AActor* player)
+{
+	for (int i = 0; i < players.Num(); i += 1)
+	{
+		if (players[i].list.Contains(player)) return triggers[i];
+	}
+
+	return nullptr;
 }

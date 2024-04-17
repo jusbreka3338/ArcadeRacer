@@ -27,6 +27,7 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	void HandleTracking();
 
 	UPROPERTY()
 	TArray<FActorEncapsulate> players;
@@ -38,22 +39,33 @@ protected:
 
 	UPROPERTY()
 	TArray<AActor*> triggers;
-
-	void HandleTracking();
+	
+	UPROPERTY()
 	TArray<AActor*> sortedPlayers;
+	UPROPERTY()
+	TArray<AActor*> finishedPlayers;
 
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION(BlueprintCallable)
-	void SpawnTriggers(USplineComponent* inSpline);
+	void SpawnTriggers();
 
 	void PlayerEnterTrigger(AActor* inPlayer, int triggerIndex);
 
 	UPROPERTY(EditAnywhere)
+	AActor* trackSplineHandler;
+	UPROPERTY(EditAnywhere)
 	UBlueprint* triggerBlueprint;
+	UPROPERTY(EditAnywhere)
+	int lapRequirement = 3;
+	
 
 	UFUNCTION(BlueprintCallable)
 	int RequestPosition(AActor* player);
+	UFUNCTION(BlueprintCallable)
+	int RequestLap(AActor* player);
+	UFUNCTION(BlueprintCallable)
+	AActor* RequestLastTrigger(AActor* player);
 };
