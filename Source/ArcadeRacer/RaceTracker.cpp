@@ -35,7 +35,6 @@ void ARaceTracker::SpawnTriggers()
 	if (trackSplineHandler == nullptr) return;
 	USplineComponent* spline = trackSplineHandler->GetComponentByClass<USplineComponent>();
 	
-	StringHelper::Print("Triggers Spawned");
 	if (triggerBlueprint == nullptr) return;
 	
 	for (int i = 0; i < spline->GetNumberOfSplinePoints(); i += 1)
