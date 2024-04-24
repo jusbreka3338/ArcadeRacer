@@ -45,6 +45,8 @@ protected:
 	UPROPERTY()
 	TArray<AActor*> finishedPlayers;
 
+	bool raceFinished;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -68,4 +70,9 @@ public:
 	int RequestLap(AActor* player);
 	UFUNCTION(BlueprintCallable)
 	AActor* RequestLastTrigger(AActor* player);
+
+	UFUNCTION(BlueprintCallable)
+	bool GetRaceFinished() { return raceFinished; }
+	UFUNCTION(BlueprintCallable)
+	TArray<AActor*> GetFinishedPlayers() { return finishedPlayers; }
 };

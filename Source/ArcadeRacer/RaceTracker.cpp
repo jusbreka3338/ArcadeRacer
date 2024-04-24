@@ -35,7 +35,6 @@ void ARaceTracker::SpawnTriggers()
 	if (trackSplineHandler == nullptr) return;
 	USplineComponent* spline = trackSplineHandler->GetComponentByClass<USplineComponent>();
 	
-	StringHelper::Print("Triggers Spawned");
 	if (triggerBlueprint == nullptr) return;
 	
 	for (int i = 0; i < spline->GetNumberOfSplinePoints(); i += 1)
@@ -76,7 +75,11 @@ void ARaceTracker::PlayerEnterTrigger(AActor* inPlayer, int triggerIndex)
 		int playerIndex = playerActors.Find(inPlayer);
 		if (justAddedPlayer || oldPlayerPos > 2)
 			playerLaps[playerIndex] += 1; // Lap player
-		if (playerLaps[playerIndex] > lapRequirement) finishedPlayers.Add(inPlayer); // Player finish
+		if (playerLaps[playerIndex] > lapRequirement)
+		{
+			finishedPlayers.Add(inPlayer);
+			if (finishedPlayers.Num() == playerActors.Num()) raceFinished = true;
+		}
 	}
 }
 
