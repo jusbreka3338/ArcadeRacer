@@ -5,6 +5,7 @@
 
 #include "StringHelper.h"
 #include "TrackerTrigger.h"
+#include "Containers/Array.h"
 
 // Sets default values
 ARaceTracker::ARaceTracker()
@@ -85,11 +86,13 @@ void ARaceTracker::PlayerEnterTrigger(AActor* inPlayer, int triggerIndex)
 
 void ARaceTracker::HandleTracking()
 {
+	TArray<FActorEncapsulate> copiedPlayers = players;
+	
 	TArray<AActor*> laplessSortedPlayers;
-	for (int i = players.Num() - 1; i > -1; i -= 1)
+	for (int i = copiedPlayers.Num() - 1; i > -1; i -= 1)
 	{
 		TArray<AActor*> localSortedPlayers;
-		for (AActor* player : players[i].list)
+		for (AActor* player : copiedPlayers[i].list)
 		{
 			if (localSortedPlayers.Num() == 0)
 			{
@@ -151,13 +154,14 @@ int ARaceTracker::RequestLap(AActor* player)
 
 	return playerLaps[playerActors.Find(player)];
 }
-
+	
 
 AActor* ARaceTracker::RequestLastTrigger(AActor* player)
 {
-	for (int i = 0; i < players.Num(); i += 1)
+	TArray<FActorEncapsulate> copiedPlayers = players;
+	for (int i = 0; i < copiedPlayers.Num(); i += 1)
 	{
-		if (players[i].list.Contains(player)) return triggers[i];
+		if (copiedPlayers[i].list.Contains(player)) return triggers[i];
 	}
 
 	return nullptr;
