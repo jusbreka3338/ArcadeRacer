@@ -36,6 +36,8 @@ protected:
 	TArray<AActor*> playerActors;
 	UPROPERTY()
 	TArray<int> playerLaps;
+	UPROPERTY()
+	TArray<int> playerPassedTriggers;
 
 	UPROPERTY()
 	TArray<AActor*> triggers;
