@@ -59,6 +59,7 @@ void ARaceTracker::PlayerEnterTrigger(AActor* inPlayer, int triggerIndex)
 	{
 		playerActors.Add(inPlayer);
 		playerLaps.Add(0);
+		playerPassedTriggers.Add(0);
 
 		justAddedPlayer = true;
 	}
