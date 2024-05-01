@@ -54,14 +54,11 @@ void ARaceTracker::SpawnTriggers()
 
 void ARaceTracker::PlayerEnterTrigger(AActor* inPlayer, int triggerIndex)
 {
-	bool justAddedPlayer = false;
 	if (!playerActors.Contains(inPlayer))
 	{
 		playerActors.Add(inPlayer);
 		playerLaps.Add(0);
 		playerPassedTriggers.Add(0);
-
-		justAddedPlayer = true;
 	}
 
 	int oldPlayerPos = triggers.Find(RequestLastTrigger(inPlayer));
@@ -72,15 +69,17 @@ void ARaceTracker::PlayerEnterTrigger(AActor* inPlayer, int triggerIndex)
 	}
 	players[triggerIndex].list.Add(inPlayer);
 
-	if (triggerIndex == 0)
+	int playerIndex = playerActors.Find(inPlayer);
+	if (oldPlayerPos < triggerIndex)
 	{
-		int playerIndex = playerActors.Find(inPlayer);
-		if (justAddedPlayer || oldPlayerPos > 2)
-			playerLaps[playerIndex] += 1; // Lap player
-		if (playerLaps[playerIndex] > lapRequirement)
+		playerPassedTriggers[playerIndex] += 1;
+	}
+	else if (triggerIndex == 0)
+	{
+		if (playerPassedTriggers[playerIndex] >= triggers.Num() - 1)
 		{
-			finishedPlayers.Add(inPlayer);
-			if (finishedPlayers.Num() == playerActors.Num()) raceFinished = true;
+			playerLaps[playerIndex] += 1; // Lap Player
+			playerPassedTriggers[playerIndex] = 0;
 		}
 	}
 }
