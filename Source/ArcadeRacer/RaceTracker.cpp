@@ -86,7 +86,8 @@ void ARaceTracker::PlayerEnterTrigger(AActor* inPlayer, int triggerIndex)
 
 void ARaceTracker::HandleTracking()
 {
-	TArray<FActorEncapsulate> copiedPlayers = players;
+	TArray<FActorEncapsulate> copiedPlayers;
+	for (FActorEncapsulate encap : players) copiedPlayers.Add(encap);
 	
 	TArray<AActor*> laplessSortedPlayers;
 	for (int i = copiedPlayers.Num() - 1; i > -1; i -= 1)
