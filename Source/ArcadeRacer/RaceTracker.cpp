@@ -105,12 +105,18 @@ void ARaceTracker::HandleTracking()
 			bool playerPlaced = false;
 			for (int j = 0; j < localSortedPlayers.Num(); j += 1)
 			{
-				float compareDist = localSortedPlayers[j]->GetDistanceTo(triggers[i]);
-				if (dist < compareDist)
+				try
 				{
-					localSortedPlayers.Insert(player, j);
-					playerPlaced = true;
-					break;
+					float compareDist = localSortedPlayers[j]->GetDistanceTo(triggers[i]);
+					if (dist < compareDist)
+					{
+						localSortedPlayers.Insert(player, j);
+						playerPlaced = true;
+						break;
+					}
+				} catch (...)
+				{
+					StringHelper::Print("Race Tracker encountered an error");
 				}
 			}
 			
@@ -165,5 +171,5 @@ AActor* ARaceTracker::RequestLastTrigger(AActor* player)
 		if (copiedPlayers[i].list.Contains(player)) return triggers[i];
 	}
 
-	return nullptr;
+	return triggers[0];
 }
