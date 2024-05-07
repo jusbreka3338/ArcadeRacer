@@ -122,7 +122,7 @@ void ARaceTracker::HandleTracking()
 			{
 				try
 				{
-					float compareDist = localSortedPlayers[j]->GetDistanceTo(triggers[i]);
+					float compareDist = FVector::Distance(localSortedPlayers[j]->GetActorLocation(), triggers[i]->GetActorLocation());
 					if (dist < compareDist)
 					{
 						localSortedPlayers.Insert(player, j);
