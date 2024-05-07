@@ -13,13 +13,18 @@ ARaceTracker::ARaceTracker()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	static ConstructorHelpers::FObjectFinder<UClass> bpClassFinder(TEXT("Class'/Game/Blueprints/BP_TrackerTrigger.BP_TrackerTrigger_C'"));
+	if (bpClassFinder.Object)
+	{
+		triggerClass = bpClassFinder.Object;
+	}
 }
 
 // Called when the game starts or when spawned
 void ARaceTracker::BeginPlay()
 {
 	Super::BeginPlay();
-
+	
 	SpawnTriggers();
 }
 
@@ -33,14 +38,22 @@ void ARaceTracker::Tick(float DeltaTime)
 
 void ARaceTracker::SpawnTriggers()
 {
-	if (trackSplineHandler == nullptr) return;
+	if (trackSplineHandler == nullptr)
+	{
+		StringHelper::Print("Spline handler null");
+		return;
+	}
 	USplineComponent* spline = trackSplineHandler->GetComponentByClass<USplineComponent>();
 	
-	if (triggerBlueprint == nullptr) return;
+	if (triggerClass == nullptr)
+	{
+		StringHelper::Print("Trigger null");
+		return;
+	}
 	
 	for (int i = 0; i < spline->GetNumberOfSplinePoints(); i += 1)
 	{
-		ATrackerTrigger* newTrigger = static_cast<ATrackerTrigger*>(GetWorld()->SpawnActor(triggerBlueprint->GeneratedClass));
+		ATrackerTrigger* newTrigger = static_cast<ATrackerTrigger*>(GetWorld()->SpawnActor(triggerClass));
 		newTrigger->SetActorLocation(spline->GetLocationAtSplinePoint(i, ESplineCoordinateSpace::World));
 		newTrigger->SetActorRotation(spline->GetRotationAtSplinePoint(i, ESplineCoordinateSpace::World));
 
