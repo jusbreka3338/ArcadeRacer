@@ -94,6 +94,8 @@ void ARaceTracker::PlayerEnterTrigger(AActor* inPlayer, int triggerIndex)
 			playerLaps[playerIndex] += 1; // Lap Player
 			playerPassedTriggers[playerIndex] = 0;
 		}
+		if (playerLaps[playerIndex] >= lapRequirement) finishedPlayers.Add(inPlayer);
+		if (finishedPlayers.Num() >= playerActors.Num()) raceFinished = true;
 	}
 }
 
