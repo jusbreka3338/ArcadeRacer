@@ -48,20 +48,18 @@ protected:
 	TArray<AActor*> finishedPlayers;
 
 	bool raceFinished;
+	UClass* triggerClass = nullptr;
 
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UFUNCTION(BlueprintCallable)
 	void SpawnTriggers();
 
 	void PlayerEnterTrigger(AActor* inPlayer, int triggerIndex);
 
 	UPROPERTY(EditAnywhere)
 	AActor* trackSplineHandler;
-	UPROPERTY(EditAnywhere)
-	UBlueprint* triggerBlueprint;
 	UPROPERTY(EditAnywhere)
 	int lapRequirement = 3;
 	
