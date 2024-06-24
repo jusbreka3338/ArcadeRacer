@@ -120,19 +120,14 @@ void ARaceTracker::HandleTracking()
 			bool playerPlaced = false;
 			for (int j = 0; j < localSortedPlayers.Num(); j += 1)
 			{
-				try
+				float compareDist = FVector::Distance(localSortedPlayers[j]->GetActorLocation(), triggers[i]->GetActorLocation());
+				if (dist < compareDist)
 				{
-					float compareDist = FVector::Distance(localSortedPlayers[j]->GetActorLocation(), triggers[i]->GetActorLocation());
-					if (dist < compareDist)
-					{
-						localSortedPlayers.Insert(player, j);
-						playerPlaced = true;
-						break;
-					}
-				} catch (...)
-				{
-					StringHelper::Print("Race Tracker encountered an error");
+					localSortedPlayers.Insert(player, j);
+					playerPlaced = true;
+					break;
 				}
+
 			}
 			
 			if (playerPlaced) continue;
